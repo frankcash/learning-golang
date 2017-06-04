@@ -13,7 +13,7 @@ import(
 
 func main(){
 	for _, url := range os.Args[1:]{
-		if !strings.HasPrefix(url, "http://") || !strings.HasPrefix(url, "https://"){
+		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://"){
 			url = "http://" + url
 		}	
 		resp, err := http.Get(url)
