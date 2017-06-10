@@ -37,7 +37,6 @@ func fetch(url string, ch chan<-string){
 		return
 	}
 	body, err := ioutil.ReadAll(resp.Body)
-
 	if err != nil{
 		ch <- fmt.Sprint(err)
 		return
