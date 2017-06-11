@@ -64,13 +64,6 @@ func main(){
 		go fetch(url, ch, chFinished)
 	}
 
-	//for msg := range ch{
-		//fmt.Println(msg[1])
-		//err := writer.Write(msg)
-		//if err != nil{
-		//	fmt.Println("Err: ", err)
-		//}
-	//}
 
 	for c := 0; c < len(os.Args[1:]);{
 		select{
