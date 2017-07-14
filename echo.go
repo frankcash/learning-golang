@@ -1,4 +1,4 @@
-package main
+package example
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func main(){
 		sep = " "
 		fmt.Println(index)
 		fmt.Println(arg)
-	}	
+	}
 	fmt.Println("Command" + os.Args[0])
 	fmt.Println(s)
 

@@ -1,6 +1,6 @@
 // Prints lines that appear more than once
 
-package main
+package example
 
 import(
 	"fmt"

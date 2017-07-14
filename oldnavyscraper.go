@@ -2,7 +2,7 @@
 // http://oldnavy.gap.com/resources/productSearch/v1/search?cid=5199&isFacetsEnabled=true&globalShippingCountryCode=&globalShippingCurrencyCode=&locale=en_US&
 // http://www.gap.com/resources/productSearch/v1/search?cid=6998&isFacetsEnabled=true&globalShippingCountryCode=&globalShippingCurrencyCode=&locale=en_US&pageId=0&department=75
 
-package main
+package example
 
 import(
 	"fmt"

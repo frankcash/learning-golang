@@ -1,6 +1,6 @@
 // fetches all urls supplied in a concurrent manner
 
-package main
+package example
 
 import(
 	"fmt"

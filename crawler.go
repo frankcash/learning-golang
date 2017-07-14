@@ -1,4 +1,4 @@
-package main
+package example
 
 // based on https://schier.co/blog/2015/04/26/a-simple-web-scraper-in-go.html
 
@@ -39,7 +39,7 @@ func crawl(url string, ch chan string, chFinished chan bool){
 	defer b.Close() // close Body when function returns
 
 	z := html.NewTokenizer(b)
-	
+
 	for{
 		tt := z.Next()
 		switch{
@@ -66,7 +66,7 @@ func crawl(url string, ch chan string, chFinished chan bool){
 					ch <- url
 				}
 		}
-	
+
 	}
 }
 
@@ -76,7 +76,7 @@ func main(){
 	// channels
 	chUrls := make(chan string)
 	chFinished := make(chan bool)
-	
+
 	for _, url := range seedUrls{
 		go crawl(url, chUrls, chFinished)
 	}

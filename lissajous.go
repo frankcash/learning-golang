@@ -1,5 +1,5 @@
 // $ go run lissajous.go > out.gif
-package main
+package example
 
 import(
 	"os"
