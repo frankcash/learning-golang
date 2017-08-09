@@ -19,29 +19,27 @@ func NewUser() *User {
 	return &u
 }
 
-func main() {
-
-	fmt.Println("main.go")
-
+func connect() *sql.DB {
 	db, err := sql.Open("postgres", "user=pqgotest dbname=frankcash sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	err = db.Ping()
 	if err != nil {
 		log.Fatal("Error: Could not establish a connection with the database")
 	}
+	return db
+}
 
-	age := 21
+func getUser(db *sql.DB, age int) *User {
+	user := NewUser()
 
 	rows, err := db.Query("SELECT name FROM public.users WHERE age = $1", age)
+	defer rows.Close()
+
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	defer rows.Close()
-	user := NewUser()
 
 	for rows.Next() {
 		err := rows.Scan(
@@ -52,6 +50,17 @@ func main() {
 			break
 		}
 	}
+
+	return user
+
+}
+
+func main() {
+	fmt.Println("main.go")
+
+	db := connect()
+	age := 21
+	user := getUser(db, age)
 	fmt.Printf("User's name is %s\n", user.Name)
 
 }
